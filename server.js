@@ -1,15 +1,26 @@
 const express = require('express');
-const connectDB = require('./DB/Connection'); // Import the connectDB function
+const connectDB = require('./DB/Connection');
+const contactsRoutes = require('./routes/contacts');
 const app = express();
 
-connectDB(); // Call the function to connect to MongoDB
+// Connect to MongoDB
+connectDB();
 
-const PORT = process.env.PORT || 3000; // Changed 'Port' to 'PORT'
-const HOST = process.env.HOST || 'localhost';
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Welcome route
 app.get('/', (req, res) => {
     res.send('Welcome to The Contact List Database!');
 });
+
+// Use the contacts routes
+app.use('/contacts', contactsRoutes);
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || 'localhost';
 
 app.listen(PORT, HOST, () => {
     console.log(`Server is running at http://${HOST}:${PORT}`);

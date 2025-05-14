@@ -1,0 +1,20 @@
+# Get all contacts
+GET http://localhost:3000/contacts
+
+###
+
+# Get a contact by ID (replace with an actual ID once you have data)
+GET http://localhost:3000/contacts/607e71fcca382e5138206411
+
+###
+
+# Production URLs (after you deploy to Render)
+# Replace with your actual Render URL
+
+# Get all contacts
+GET https://contacts-api-xxxx.onrender.com/contacts
+
+###
+
+# Get a contact by ID (replace with an actual ID once you have data)
+GET https://contacts-api-xxxx.onrender.com/contacts/607e71fcca382e5138206411
