@@ -38,9 +38,10 @@ app.use((req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'localhost';
 
-app.listen(PORT, HOST, () => {
-    console.log(`Server is running at http://${HOST}:${PORT}`);
-    console.log(`You can access the server at http://localhost:${PORT} (if running locally)`);
+// For production on Render, bind to 0.0.0.0 instead of localhost
+// This is necessary for Render to expose your service to the internet
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log('Server is accepting connections from all network interfaces (0.0.0.0)');
 });
