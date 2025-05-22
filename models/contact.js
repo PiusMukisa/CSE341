@@ -11,7 +11,8 @@ const contactSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email address']
   },
   favoriteColor: {
     type: String,
