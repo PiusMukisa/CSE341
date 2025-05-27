@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const connectDB = require('./DB/Connection');
 const contactsRoutes = require('./routes/contacts');
 const swaggerUi = require('swagger-ui-express');
@@ -14,6 +15,14 @@ console.log('PORT defined:', process.env.PORT ? 'Yes' : 'No');
 
 // Connect to MongoDB
 connectDB();
+
+// CORS configuration - IMPORTANT: This must be before other middleware
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://contacts-api-xxxx.onrender.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
 
 // Middleware
 app.use(express.json());
@@ -55,4 +64,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://localhost:${PORT}`);
     console.log('Server is accepting connections from all network interfaces (0.0.0.0)');
+    console.log(`Swagger documentation available at http://localhost:${PORT}/api-docs`);
 });
