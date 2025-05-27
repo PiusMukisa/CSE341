@@ -9,12 +9,12 @@ const options = {
       description: 'API for managing contacts information',
       contact: {
         name: 'CSE 341 Student',
-        url: 'https://github.com/yourusername/cse341-contacts-api',
+        url: 'https://github.com/PiusMukisa/cse341-contacts-api',
       },
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'https://cse341-n8r6.onrender.com',
         description: 'Development server',
       },
       {
