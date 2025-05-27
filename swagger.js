@@ -10,7 +10,7 @@ const options = {
       contact: {
         name: 'CSE 341 Student',
         url: 'https://github.com/PiusMukisa/cse341-contacts-api',
-      },
+      },  
     },
     servers: [
       {
